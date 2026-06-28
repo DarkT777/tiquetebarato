@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tiquetes Baratos | Hoteles y vuelos al mejor precio</title>
+  <meta name="description" content="Reserva vuelos y hoteles al menor precio con Tiquetes Baratos. Ahorra hasta un 10% extra usando nuestra app. ¡Compara y viaja por menos hoy!">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
+</head>
+<body>
+
+  <!-- ===== TOP BANNER ===== -->
+  <div id="DownloadAppBanner">
+    <div class="container">
+      <div class="d-flex align-items-center" style="gap:4px">
+        <i class="icons-mobile-alt d-flex"></i>
+        <p class="mb-0 font-14">Ahorra hasta <strong>10% extra en hoteles</strong> con nuestra app!</p>
+      </div>
+      <div class="d-flex align-items-center" style="gap:8px">
+        <a href="#" class="btnSecondary btnSecondary--xs">Descargar</a>
+        <button class="closeBtn" aria-label="Cerrar">&times;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== COUPON BANNER ===== -->
+  <div id="banner-wd" class="banner-wd" style="display:none">
+    <div class="banner-wd-content">
+      <div class="d-row">
+        <p class="m-0">
+          <strong>Cupón <span class="coupon_desc">BIENVENIDO10</span>:</strong>
+          <span class="text-banner-wd">10% de descuento extra en hoteles seleccionados</span>
+          <a href="" class="banner-wd-link">Ver términos y condiciones</a>
+        </p>
+      </div>
+    </div>
+    <span class="icons-close cursor-pointer"></span>
+  </div>
+
+  <!-- ===== HEADER ===== -->
+  <header id="header">
+    <div class="header__top main-layout">
+      <div class="header__logo-container">
+        <a class="header__logo" href="/" title="Tiquetes Baratos">
+          <svg width="68" height="60" viewBox="0 0 68 60" xmlns="http://www.w3.org/2000/svg" aria-label="Tiquetes Baratos">
+            <rect x="4" y="8" width="60" height="44" rx="8" fill="#1a3b5d"/>
+            <text x="34" y="38" text-anchor="middle" fill="#f5a623" font-size="14" font-weight="bold" font-family="Arial">TB</text>
+          </svg>
+        </a>
+        <div class="header__logo-text">
+          <span class="logo-subtitle">Hoteles, Paquetes y</span>
+          <strong class="logo-title">Tiquetes<span class="highlight">Baratos</span>.com</strong>
+        </div>
+      </div>
+
+      <!-- Desktop buttons -->
+      <div class="header__buttons d-none d-md-flex">
+        <div class="position-relative">
+          <button class="header__btn" onclick="showModal('modal_langcurr')" type="button">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1a3b5d" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            Español - COP
+          </button>
+        </div>
+
+        <div class="position-relative">
+          <button class="header__btn" data-dropdown-toggle="helpDropdown" aria-expanded="false">
+            Ayuda
+            <i class="icons-arrow-drop-down font-20"></i>
+          </button>
+          <div class="header__dropdown" data-dropdown-menu id="helpDropdown">
+            <menu class="dropdown__container" role="menu">
+              <li><a class="dropdown__link" href="#">Preguntas Frecuentes</a></li>
+              <li><button class="dropdown__link" onclick="showModal('modal-call-global')">¿Necesitas que te llamemos?</button></li>
+              <li><a class="dropdown__link" href="#">Escríbenos</a></li>
+              <li><a class="dropdown__link" href="#">Viajes en grupo</a></li>
+            </menu>
+          </div>
+        </div>
+
+        <div class="position-relative">
+          <button class="header__btn" data-dropdown-toggle="phoneDropdown" aria-expanded="false">
+            <i class="icons-phone"></i>
+            <span><span class="d-none d-lg-inline">Para reservar</span> <strong>601 743 6620</strong></span>
+            <i class="icons-arrow-drop-down font-20"></i>
+          </button>
+          <div class="header__dropdown" data-dropdown-menu id="phoneDropdown">
+            <menu class="dropdown__container dropdown__container--phones list-unstyled">
+              <li><div class="dropdown-header"><div class="dropdown-title">¡Llámanos! Asesores disponibles 24/7</div></div></li>
+              <li><div class="main-number"><a href="tel:6017436620" class="main-phone">601 743 6620</a></div></li>
+              <li><div class="city-phones">
+                <div class="section-title">Teléfonos por ciudad</div>
+                <div class="phones-grid">
+                  <div><a href="tel:6017436620" class="phone-number"><span class="city-name">Bogotá:</span> 601 743 6620</a></div>
+                  <div><a href="tel:6054366151" class="phone-number"><span class="city-name">S. Marta:</span> 605 436 6151</a></div>
+                  <div><a href="tel:6024850400" class="phone-number"><span class="city-name">Cali:</span> 602 485 0400</a></div>
+                  <div><a href="tel:6056930520" class="phone-number"><span class="city-name">Cartagena:</span> 605 693 0520</a></div>
+                  <div><a href="tel:6053852828" class="phone-number"><span class="city-name">Medellín:</span> 605 385 2828</a></div>
+                  <div><a href="tel:6055894120" class="phone-number"><span class="city-name">Valledupar:</span> 605 589 4120</a></div>
+                  <div><a href="tel:6046041777" class="phone-number"><span class="city-name">Barranquilla:</span> 604 604 1777</a></div>
+                  <div><a href="tel:6075943050" class="phone-number"><span class="city-name">Cúcuta:</span> 607 594 3050</a></div>
+                  <div><a href="tel:6027365080" class="phone-number"><span class="city-name">Pasto:</span> 602 736 5080</a></div>
+                  <div><a href="tel:6068918920" class="phone-number"><span class="city-name">Manizales:</span> 606 891 8920</a></div>
+                  <div><a href="tel:6063400720" class="phone-number"><span class="city-name">Pereira:</span> 606 340 0720</a></div>
+                  <div><a href="tel:6076970800" class="phone-number"><span class="city-name">Bucaramanga:</span> 607 697 0800</a></div>
+                  <div><a href="tel:6067359840" class="phone-number"><span class="city-name">Armenia:</span> 606 735 9840</a></div>
+                </div>
+              </div></li>
+              <li><div class="contact-options">
+                <a href="#" class="contact-btn whatsapp"><i class="icons-whatsapp d-flex"></i> WhatsApp</a>
+                <a href="#" class="contact-btn messenger"><i class="icons-messenger d-flex"></i> Messenger</a>
+                <button class="contact-btn agent-btn" onclick="showModal('modal-call-global')"><i class="icons-support-agent"></i> ¿Necesitas que te llamemos?</button>
+              </div></li>
+            </menu>
+          </div>
+        </div>
+
+        <div class="position-relative">
+          <button class="header__btn header__btn--login" data-dropdown-toggle="no_login_content" type="button" aria-label="Menú principal">
+            <span>Iniciar sesión</span>
+            <i class="icons-menu" style="width:20px;height:20px"></i>
+          </button>
+          <nav class="header__dropdown" data-dropdown-menu id="no_login_content">
+            <menu class="dropdown__container" role="menu">
+              <li class="dropdown__item dropdown__item--login">
+                <div class="navbar__user-wrapper g-12 mb-12">
+                  <span class="navbar__user-icon"><i class="icons-user-outline font-20"></i></span>
+                  <span class="navbar__user-text m-0">Inicia sesión y obtén hasta un <br> <strong>10% de descuento en hoteles</strong></span>
+                </div>
+                <a class="navbar__login-btn btnPrimary font-14" href="#">Inicia sesión o crea una cuenta <i class="icons-angle-right"></i></a>
+              </li>
+              <li><a class="dropdown__link" href="#"><i class="icons-heart"></i> Favoritos</a></li>
+              <li><a class="dropdown__link" href="#"><i class="icons-suitcase"></i> Reservas y viajes</a></li>
+              <li><a class="dropdown__link" href="#"><i class="icons-tickets-airline"></i> Web Check-in</a></li>
+              <li><a class="dropdown__link" href="#"><i class="icons-credit-card1"></i> Pago en línea</a></li>
+              <li><a class="dropdown__link" href="#"><i class="icons-receipt"></i> Facturación</a></li>
+            </menu>
+          </nav>
+        </div>
+      </div>
+
+      <!-- Mobile menu button -->
+      <div class="d-flex g-16 align-items-center d-md-none">
+        <div class="header__menu">
+          <button class="menu__mobile g-12" onclick="showModal('modal_navbar')" aria-label="Menú principal">
+            <span class="menu__mobile-icon"><i class="icons-person font-24"></i></span>
+            <i class="icons-menu font-24" style="width:24px;height:24px"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="header__bottom main-layout p-0">
+      <menu class="bottom__container">
+        <li class="bottom__tab"><a class="current" href="#"><i class="icons-local-airport"></i> Vuelos</a></li>
+        <li class="bottom__tab"><span class="promo-tag promo-tag__more d-none d-md-inline-block position-absolute">+250,000</span><a href="#"><i class="icons-hotel"></i> Alojamientos</a></li>
+        <li class="bottom__tab"><span class="promo-tag promo-tag__save d-none d-md-inline-block position-absolute">¡Ahorra más!</span><a href="#"><i class="icons-suitcase-rolling"></i> Hotel + Vuelo</a></li>
+        <li class="bottom__tab"><a href="#"><i class="icons-disney"></i> Disney</a></li>
+        <li class="bottom__tab c-nav-dropdown position-relative">
+          <a href="#" id="dropdownOfertas" role="button" aria-expanded="false">
+            <i class="icons-flame1"></i> Ofertas <span class="icons-chevron-down"></span>
+          </a>
+          <ul class="dropdown-menu cs-menu-ofertas py-0">
+            <li><a class="dropdown-item" href="#">Ofertas especiales</a></li>
+            <li><a class="dropdown-item" href="#">Hoteles</a></li>
+            <li><a class="dropdown-item" href="#">Paquetes</a></li>
+            <li><a class="dropdown-item" href="#">Último minuto</a></li>
+            <li><a class="dropdown-item" href="#">Vuelos desde tu ciudad</a></li>
+            <li><a class="dropdown-item" href="#">Vuelos a cualquier destino</a></li>
+          </ul>
+        </li>
+      </menu>
+    </div>
+  </header>
+
+  <!-- ===== MOBILE NAV MODAL ===== -->
+  <div class="modal" id="modal_navbar" tabindex="-1">
+    <div class="modal-dialog mr-0 ml-32 mt-0 mb-0">
+      <div class="modal-content modal__content">
+        <header class="navbar__header px-16 py-20">
+          <div class="navbar__user">
+            <div class="navbar__user-wrapper g-12">
+              <span class="navbar__user-icon"><i class="icons-user-outline font-primary font-20"></i></span>
+              <span class="navbar__user-text m-0">Inicia sesión y obtén hasta un <br> <strong>10% de descuento en hoteles</strong></span>
+            </div>
+            <button type="button" class="navbar__close" aria-label="Cerrar" onclick="hideModal('modal_navbar')"><i class="icons-close d-flex font-24"></i></button>
+          </div>
+          <a class="navbar__login-btn btnPrimary" href="#">Inicia sesión o crea una cuenta</a>
+        </header>
+
+        <nav class="navbar__nav">
+          <!-- Language -->
+          <section class="navbar__section navbar__section--language mt-12">
+            <button type="button" class="navbar__lang-btn px-16 g-8 p-12" onclick="hideModal('modal_navbar');setTimeout(function(){showModal('modal_settings')},300)">
+              <div class="navbar__lang-info g-8">
+                <figure class="navbar__lang-container">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a3b5d" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </figure>
+                <span class="navbar__lang-label font-14 font-strong">Idioma & Moneda</span>
+              </div>
+              <span class="navbar__lang-value g-8 font-14 font-strong">Español (COP) <i class="icons-angle-right font-18"></i></span>
+            </button>
+            <hr class="navbar__divider mx-16">
+          </section>
+
+          <!-- Main Nav -->
+          <section class="navbar__section navbar__section--main">
+            <ul class="navbar__list">
+              <li class="navbar__item"><a href="#" class="navbar__link navbar__link--active px-16 py-12 font-14 g-8"><i class="icons-local-airport font-18"></i> <span>Vuelos</span></a></li>
+              <li class="navbar__item"><a href="#" class="navbar__link px-16 py-12 font-14 g-8"><i class="icons-hotel font-18"></i> <span>Alojamientos</span></a></li>
+              <li class="navbar__item"><a href="#" class="navbar__link px-16 py-12 font-14 g-8"><i class="icons-suitcase-rolling font-18"></i> <span>Hotel + Vuelo</span> <span class="navbar__tag">¡Ahorra más!</span></a></li>
+              <li class="navbar__item"><a href="#" class="navbar__link px-16 py-12 font-14 g-8"><i class="icons-disney font-18"></i> <span>Disney</span></a></li>
+              <li class="navbar__item"><button class="navbar__phone-btn px-16 p-12" onclick="hideModal('modal_navbar');setTimeout(function(){showModal('modal_offer')},300)"><span class="font-14 g-8"><i class="icons-flame1"></i> Ofertas</span> <i class="icons-angle-right font-18"></i></button></li>
+            </ul>
+            <hr class="navbar__divider mx-16">
+          </section>
+
+          <!-- Reservations -->
+          <section class="navbar__section navbar__section--reservations">
+            <ul class="navbar__list">
+              <li class="navbar__item"><a href="#" class="navbar__link px-16 py-12 font-14 g-8"><i class="icons-suitcase font-18"></i> <span>Reservas y viajes</span></a></li>
+              <li class="navbar__item"><a href="#" class="navbar__link px-16 py-12 font-14 g-8"><i class="icons-credit-card1 font-18"></i> Pago en linea</a></li>
+              <li class="navbar__item"><a href="#" class="navbar__link px-16 py-12 font-14 g-8"><i class="icons-heart font-18"></i> <span>Favoritos</span></a></li>
+              <li class="navbar__item"><a href="#" class="navbar__link px-16 py-12 font-14 g-8"><i class="icons-tickets-airline font-18"></i> <span>Web Check-in</span></a></li>
+              <li class="navbar__item"><a href="#" class="navbar__link px-16 py-12 font-14 g-8"><i class="icons-receipt font-18"></i> <span>Facturación</span></a></li>
+            </ul>
+            <hr class="navbar__divider mx-16">
+          </section>
+
+          <!-- Help -->
+          <section class="navbar__section navbar__section--help">
+            <button class="navbar__phone-btn px-16 p-12" onclick="hideModal('modal_navbar');setTimeout(function(){showModal('modal_help')},300)">
+              <span class="font-14 g-8"><i class="icons-question-circle font-18"></i> Ayuda</span>
+              <i class="icons-angle-right font-18"></i>
+            </button>
+            <hr class="navbar__divider mx-16">
+          </section>
+
+          <!-- Phone -->
+          <section class="navbar__section navbar__section--phone">
+            <button class="navbar__phone-btn px-16 p-12" onclick="hideModal('modal_navbar');setTimeout(function(){showModal('modal_phones')},300)">
+              <span class="font-14 g-8"><i class="icons-phone font-18"></i> Para reservar</span>
+              <i class="icons-angle-right font-18"></i>
+            </button>
+          </section>
+
+          <!-- Social -->
+          <section class="navbar__section navbar__section--social my-12">
+            <ul class="navbar__list">
+              <li class="navbar__item"><a href="#" class="navbar__link navbar__link--media px-16 py-12 font-14 g-8"><i class="icons-whatsapp font-18"></i> <span>Whatsapp</span></a></li>
+              <li class="navbar__item"><a href="#" class="navbar__link navbar__link--media px-16 py-12 font-14 g-8"><i class="icons-messenger font-18"></i> <span>Messenger</span></a></li>
+            </ul>
+          </section>
+        </nav>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== SETTINGS MODAL ===== -->
+  <div class="modal" id="modal_settings" tabindex="-1">
+    <div class="modal-dialog mr-0 ml-32 mt-0 mb-0">
+      <div class="modal-content modal__content settings">
+        <header class="settings__header py-20 px-16 mb-20">
+          <button type="button" class="settings__back" onclick="hideModal('modal_settings');setTimeout(function(){showModal('modal_navbar')},300)"><span class="icons-angle-left font-24"></span></button>
+          <h2 class="settings__title font-18 font-600 font-main mb-0">Idioma & Moneda</h2>
+        </header>
+
+        <form id="settingsForm">
+          <fieldset class="settings__group settings__group--language mb-20">
+            <legend class="settings__subtitle font-16 font-600 px-16">Idioma</legend>
+            <ul class="settings__list">
+              <li><label class="settings__item settings__item--language settings__item--active px-16 py-12">
+                <input class="visually-hidden" type="radio" name="choose-language" value="es" checked>
+                <span class="settings__label g-8"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1a3b5d" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> Español</span>
+                <span class="settings__icon icons-check-circle font-24 settings__icon--active"></span>
+              </label></li>
+              <li><label class="settings__item settings__item--language px-16 py-12">
+                <input class="visually-hidden" type="radio" name="choose-language" value="en">
+                <span class="settings__label g-8"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> English</span>
+                <span class="settings__icon icons-check-circle font-24"></span>
+              </label></li>
+            </ul>
+          </fieldset>
+
+          <fieldset class="settings__group settings__group--currency mb-20">
+            <legend class="settings__subtitle font-16 font-600 px-16">Moneda</legend>
+            <p class="settings__description font-14 px-16">Los precios se mostrarán en la moneda que selecciones.</p>
+            <ul class="settings__list settings__list--moneda">
+              <li><label class="settings__item settings__item--currency settings__item--active px-16 py-12">
+                <input class="visually-hidden" type="radio" name="choose-currency" value="COP" checked>
+                <span class="settings__label g-28"><span class="settings__code">COP</span> Peso colombiano</span>
+                <span class="settings__icon icons-check-circle font-24 settings__icon--active"></span>
+              </label></li>
+              <li><label class="settings__item settings__item--currency px-16 py-12">
+                <input class="visually-hidden" type="radio" name="choose-currency" value="USD">
+                <span class="settings__label g-28"><span class="settings__code">USD</span> US Dollar</span>
+                <span class="settings__icon icons-check-circle font-24"></span>
+              </label></li>
+              <li><label class="settings__item settings__item--currency px-16 py-12">
+                <input class="visually-hidden" type="radio" name="choose-currency" value="MXN">
+                <span class="settings__label g-28"><span class="settings__code">MXN</span> Peso mexicano</span>
+                <span class="settings__icon icons-check-circle font-24"></span>
+              </label></li>
+              <li><label class="settings__item settings__item--currency px-16 py-12">
+                <input class="visually-hidden" type="radio" name="choose-currency" value="EUR">
+                <span class="settings__label g-28"><span class="settings__code">EUR</span> Euro</span>
+                <span class="settings__icon icons-check-circle font-24"></span>
+              </label></li>
+              <li><label class="settings__item settings__item--currency px-16 py-12">
+                <input class="visually-hidden" type="radio" name="choose-currency" value="BRL">
+                <span class="settings__label g-28"><span class="settings__code">BRL</span> Reais brasileiros</span>
+                <span class="settings__icon icons-check-circle font-24"></span>
+              </label></li>
+            </ul>
+          </fieldset>
+
+          <div class="settings__actions py-20 px-16">
+            <button type="submit" class="settings__apply btnPrimary w-100">Aplicar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== PHONES MODAL ===== -->
+  <div class="modal" id="modal_phones" tabindex="-1">
+    <div class="modal-dialog mr-0 ml-32 mt-0 mb-0">
+      <div class="modal-content modal__content phone-reservation">
+        <header class="phone-reservation__header py-20 px-16">
+          <button type="button" class="phone-reservation__back" onclick="hideModal('modal_phones');setTimeout(function(){showModal('modal_navbar')},300)"><span class="icons-angle-left font-24"></span></button>
+          <h2 class="phone-reservation__title font-18 font-600 mb-0">Para reservar</h2>
+        </header>
+        <div class="phone-reservation__cta py-12">
+          <button class="phone-reservation__action font-blue font-14 g-base" onclick="hideModal('modal_phones');showModal('modal-call-global')">
+            <span class="icons-support-agent font-24"></span> ¿Necesitas que te llamemos?
+          </button>
+        </div>
+        <div class="px-16 py-12"><a href="tel:6017436620" class="font-18 font-600" style="color:var(--primary)">601 743 6620</a></div>
+        <ul class="phone-reservation__list">
+          <li class="phone-reservation__item px-16 py-12"><span class="font-14 font-600">Teléfonos por ciudad</span></li>
+          <li class="phone-reservation__item px-16 py-12"><span>Bogotá:</span> <a href="tel:6017436620">601 743 6620</a></li>
+          <li class="phone-reservation__item px-16 py-12"><span>S. Marta:</span> <a href="tel:6054366151">605 436 6151</a></li>
+          <li class="phone-reservation__item px-16 py-12"><span>Cali:</span> <a href="tel:6024850400">602 485 0400</a></li>
+          <li class="phone-reservation__item px-16 py-12"><span>Cartagena:</span> <a href="tel:6056930520">605 693 0520</a></li>
+          <li class="phone-reservation__item px-16 py-12"><span>Medellín:</span> <a href="tel:6053852828">605 385 2828</a></li>
+          <li class="phone-reservation__item px-16 py-12"><span>Valledupar:</span> <a href="tel:6055894120">605 589 4120</a></li>
+          <li class="phone-reservation__item px-16 py-12"><span>Barranquilla:</span> <a href="tel:6046041777">604 604 1777</a></li>
+          <li class="phone-reservation__item px-16 py-12"><span>Cúcuta:</span> <a href="tel:6075943050">607 594 3050</a></li>
+          <li class="phone-reservation__item px-16 py-12"><span>Pasto:</span> <a href="tel:6027365080">602 736 5080</a></li>
+          <li class="phone-reservation__item px-16 py-12"><span>Manizales:</span> <a href="tel:6068918920">606 891 8920</a></li>
+          <li class="phone-reservation__item px-16 py-12"><span>Pereira:</span> <a href="tel:6063400720">606 340 0720</a></li>
+          <li class="phone-reservation__item px-16 py-12"><span>Bucaramanga:</span> <a href="tel:6076970800">607 697 0800</a></li>
+          <li class="phone-reservation__item px-16 py-12"><span>Armenia:</span> <a href="tel:6067359840">606 735 9840</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== HELP MODAL ===== -->
+  <div class="modal" id="modal_help" tabindex="-1">
+    <div class="modal-dialog mr-0 ml-32 mt-0 mb-0">
+      <div class="modal-content modal__content phone-reservation">
+        <header class="phone-reservation__header py-20 px-16">
+          <button type="button" class="phone-reservation__back" onclick="hideModal('modal_help');setTimeout(function(){showModal('modal_navbar')},300)"><span class="icons-angle-left font-24"></span></button>
+          <h2 class="phone-reservation__title font-18 font-600 mb-0">Ayuda</h2>
+        </header>
+        <ul class="navbar__list">
+          <li class="navbar__item"><a class="navbar__link px-16 py-12 g-8" href="#">Preguntas Frecuentes</a></li>
+          <li class="navbar__item"><button class="navbar__link px-16 py-12 g-8" onclick="hideModal('modal_help');showModal('modal-call-global')">¿Necesitas que te llamemos?</button></li>
+          <li class="navbar__item"><a class="navbar__link px-16 py-12 g-8" href="#">Escríbenos</a></li>
+          <li class="navbar__item"><a class="navbar__link px-16 py-12 g-8" href="#">Viajes en grupo</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== OFFER MODAL ===== -->
+  <div class="modal" id="modal_offer" tabindex="-1">
+    <div class="modal-dialog mr-0 ml-32 mt-0 mb-0">
+      <div class="modal-content modal__content phone-reservation">
+        <header class="phone-reservation__header py-20 px-16">
+          <button type="button" class="phone-reservation__back" onclick="hideModal('modal_offer');setTimeout(function(){showModal('modal_navbar')},300)"><span class="icons-angle-left font-24"></span></button>
+          <h2 class="phone-reservation__title font-18 font-600 mb-0">Ofertas</h2>
+        </header>
+        <menu class="navbar__list">
+          <li class="navbar__item"><a class="navbar__link px-16 py-12 g-8" href="#"><i class="icons-flame1"></i> Ofertas especiales</a></li>
+          <li class="navbar__item"><a class="navbar__link px-16 py-12 g-8" href="#"><i class="icons-hotel"></i> Hoteles</a></li>
+          <li class="navbar__item"><a class="navbar__link px-16 py-12 g-8" href="#"><i class="icons-suitcase-rolling"></i> Paquetes</a></li>
+          <li class="navbar__item"><a class="navbar__link px-16 py-12 g-8" href="#">Último minuto</a></li>
+          <li class="navbar__item"><a class="navbar__link px-16 py-12 g-8" href="#">Vuelos desde tu ciudad</a></li>
+          <li class="navbar__item"><a class="navbar__link px-16 py-12 g-8" href="#">Vuelos a cualquier destino</a></li>
+        </menu>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== LANGUAGE/CURRENCY DESKTOP MODAL ===== -->
+  <div class="modal" id="modal_langcurr" tabindex="-1">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Selección de idioma y moneda</h2>
+          <button type="button" class="close" onclick="hideModal('modal_langcurr')"><span class="icons-close font-24"></span></button>
+        </div>
+        <form class="modal-body" id="langcurrForm2">
+          <fieldset>
+            <legend>Idioma</legend>
+            <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+              <label style="display:flex;align-items:center;gap:8px;padding:8px;border:1px solid #e0e0e0;border-radius:8px;cursor:pointer">
+                <input type="radio" name="lang2" value="es" checked> Español
+              </label>
+              <label style="display:flex;align-items:center;gap:8px;padding:8px;border:1px solid #e0e0e0;border-radius:8px;cursor:pointer">
+                <input type="radio" name="lang2" value="en"> English
+              </label>
+            </div>
+          </fieldset>
+          <fieldset class="mt-32">
+            <legend>Moneda</legend>
+            <p style="font-size:14px;color:#666;margin:8px 0">Los precios se mostrarán en la moneda que selecciones.</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+              <label style="display:flex;align-items:center;gap:8px;padding:8px;border:1px solid #e0e0e0;border-radius:8px;cursor:pointer"><input type="radio" name="curr2" value="COP" checked> COP</label>
+              <label style="display:flex;align-items:center;gap:8px;padding:8px;border:1px solid #e0e0e0;border-radius:8px;cursor:pointer"><input type="radio" name="curr2" value="USD"> USD</label>
+              <label style="display:flex;align-items:center;gap:8px;padding:8px;border:1px solid #e0e0e0;border-radius:8px;cursor:pointer"><input type="radio" name="curr2" value="MXN"> MXN</label>
+              <label style="display:flex;align-items:center;gap:8px;padding:8px;border:1px solid #e0e0e0;border-radius:8px;cursor:pointer"><input type="radio" name="curr2" value="EUR"> EUR</label>
+              <label style="display:flex;align-items:center;gap:8px;padding:8px;border:1px solid #e0e0e0;border-radius:8px;cursor:pointer"><input type="radio" name="curr2" value="BRL"> BRL</label>
+              <label style="display:flex;align-items:center;gap:8px;padding:8px;border:1px solid #e0e0e0;border-radius:8px;cursor:pointer"><input type="radio" name="curr2" value="GBP"> GBP</label>
+            </div>
+          </fieldset>
+        </form>
+        <div class="modal-footer">
+          <button form="langcurrForm2" class="btnPrimary w-100">Aplicar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CALL MODAL ===== -->
+  <div class="modal-call" id="modal-call-global">
+    <div class="modal-call__dialog">
+      <div class="modal-call__content">
+        <div class="modal-call__layout">
+          <div class="modal-call__image-col">
+            <div style="width:100%;height:100%;background:linear-gradient(135deg,#1a3b5d,#2a5a8a);display:flex;align-items:center;justify-content:center;color:#fff;font-size:48px">&#9742;</div>
+          </div>
+          <div class="modal-call__form-col">
+            <div class="modal-call__header">
+              <h5 class="modal-call__title">¿Necesitas que te llamemos?</h5>
+              <button class="modal-call__close" onclick="hideModal('modal-call-global')"><span class="icons-close"></span></button>
+            </div>
+            <form novalidate id="formllamadatos">
+              <div class="modal-call__field">
+                <label class="modal-call__label" for="nombrecall">Tu nombre</label>
+                <input type="text" id="nombrecall" class="modal-call__input" placeholder="Tu nombre" required>
+                <div id="nombrecall_invalid" class="modal-call__error">Por favor digite su nombre de contacto!</div>
+              </div>
+              <div class="modal-call__field">
+                <label class="modal-call__label" for="telefonocall">Número telefónico</label>
+                <input type="tel" id="telefonocall" class="modal-call__input" placeholder="Celular (10 dígitos)" oninput="this.value=this.value.replace(/[^0-9]/g,'')" required>
+                <div id="telefonocall_invalid" class="modal-call__error">Ingresa exactamente 10 dígitos numéricos!</div>
+              </div>
+              <button type="submit" class="btnPrimary modal-call__submit w-100">Enviar</button>
+              <div class="modal-call__schedule">
+                <span class="icons-clock-outline font-24"></span>
+                <div>
+                  <p class="modal-call__schedule-title">Horario de atención</p>
+                  <p class="modal-call__schedule-text">Las 24 horas, los 7 días de la semana</p>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CONFIRMATION MODAL ===== -->
+  <div class="modal" id="modal-confirmation">
+    <div class="modal-dialog modal-dialog-centered confirmation__dialog">
+      <div class="modal-content confirmation__card">
+        <button type="button" class="confirmation__dismiss" onclick="hiddeModalConfirmation()"><span class="icons-close"></span></button>
+        <div class="confirmation__body">
+          <p class="confirmation__message font-18">¡Gracias! En breve nos comunicamos contigo.</p>
+        </div>
+        <div class="confirmation__actions">
+          <button class="confirmation__btn btnPrimary" onclick="hiddeModalConfirmation()">Aceptar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main>
+    <!-- Hero + Booker -->
+    <div class="hero-booker hero-booker--overlapped-top mb-28">
+      <section class="hero">
+        <div class="hero__background-container">
+          <div class="hero__background hero__background--active" style="opacity:1"></div>
+        </div>
+        <div class="hero__wrapper">
+          <ul class="hero__track">
+            <li class="hero__slide">
+              <picture>
+                <source media="(max-width: 767px)" srcset="https://img.cdnpth.com/assets/img/ph-mobile-home-tb-es.webp">
+                <img src="https://img.cdnpth.com/assets/img/ph-desktop-home-tb-es.webp" alt="Tiquetes Baratos" class="hero__image" fetchpriority="high">
+              </picture>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="hero-booker__flights">
+        <div class="booker-flights">
+          <div style="display:flex;gap:16px;flex-wrap:wrap">
+            <div style="flex:1;min-width:200px">
+              <label style="font-size:12px;font-weight:600;color:#666;display:block;margin-bottom:4px">Origen</label>
+              <input type="text" placeholder="Ciudad de origen" style="width:100%;padding:12px;border:1px solid #ddd;border-radius:8px;font-size:14px">
+            </div>
+            <div style="flex:1;min-width:200px">
+              <label style="font-size:12px;font-weight:600;color:#666;display:block;margin-bottom:4px">Destino</label>
+              <input type="text" placeholder="Ciudad de destino" style="width:100%;padding:12px;border:1px solid #ddd;border-radius:8px;font-size:14px">
+            </div>
+            <div style="flex:0 0 140px">
+              <label style="font-size:12px;font-weight:600;color:#666;display:block;margin-bottom:4px">Ida</label>
+              <input type="date" style="width:100%;padding:12px;border:1px solid #ddd;border-radius:8px;font-size:14px">
+            </div>
+            <div style="flex:0 0 140px">
+              <label style="font-size:12px;font-weight:600;color:#666;display:block;margin-bottom:4px">Vuelta</label>
+              <input type="date" style="width:100%;padding:12px;border:1px solid #ddd;border-radius:8px;font-size:14px">
+            </div>
+            <div style="display:flex;align-items:flex-end">
+              <button class="btnPrimary" style="padding:12px 32px">Buscar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Promotions -->
+    <div class="main-layout">
+      <div class="promotion">
+        <h1 class="font-24 font-md-28 font-600 mb-12">Reserva hoteles, vuelos y paquetes al mejor precio</h1>
+        <p class="font-16 mb-0" style="color:#666">Aventúrate a descubrir nuevos lugares</p>
+      </div>
+
+      <div class="carousele">
+        <div class="carousele__container">
+          <ul class="carousele__track" style="--gap-base:16px">
+            <li class="offer-card">
+              <a href="#" class="offer-card__link">
+                <figure class="offer-card__figure"><img src="https://via.placeholder.com/405x244/1a3b5d/fff?text=Orlando" alt="Orlando, Florida" class="offer-card__img" loading="lazy"></figure>
+                <div class="offer-card__content"><h2 class="offer-card__title">Orlando, Florida</h2></div>
+              </a>
+            </li>
+            <li class="offer-card">
+              <a href="#" class="offer-card__link">
+                <figure class="offer-card__figure"><img src="https://via.placeholder.com/405x244/e85d3a/fff?text=Avianca" alt="Avianca" class="offer-card__img" loading="lazy"></figure>
+                <div class="offer-card__content"><h2 class="offer-card__title">Avianca</h2></div>
+              </a>
+            </li>
+            <li class="offer-card">
+              <a href="#" class="offer-card__link">
+                <figure class="offer-card__figure"><img src="https://via.placeholder.com/405x244/27ae60/fff?text=Mexico" alt="Explora México" class="offer-card__img" loading="lazy"></figure>
+                <div class="offer-card__content"><h2 class="offer-card__title">Explora México</h2></div>
+              </a>
+            </li>
+            <li class="offer-card">
+              <a href="#" class="offer-card__link">
+                <figure class="offer-card__figure"><img src="https://via.placeholder.com/405x244/2980b9/fff?text=New+York" alt="Nueva York" class="offer-card__img" loading="lazy"></figure>
+                <div class="offer-card__content"><h2 class="offer-card__title">Nueva York</h2></div>
+              </a>
+            </li>
+            <li class="offer-card">
+              <a href="#" class="offer-card__link">
+                <figure class="offer-card__figure"><img src="https://via.placeholder.com/405x244/f5a623/fff?text=CDMX" alt="Vuela a Ciudad de México" class="offer-card__img" loading="lazy"></figure>
+                <div class="offer-card__content"><h2 class="offer-card__title">Vuela a Ciudad de México</h2></div>
+              </a>
+            </li>
+            <li class="offer-card">
+              <a href="#" class="offer-card__link">
+                <figure class="offer-card__figure"><img src="https://via.placeholder.com/405x244/e74c3c/fff?text=Florida" alt="Hasta 35% descuento" class="offer-card__img" loading="lazy"></figure>
+                <div class="offer-card__content"><h2 class="offer-card__title">Hasta 35% de descuento en hoteles.</h2></div>
+              </a>
+            </li>
+            <li class="offer-card">
+              <a href="#" class="offer-card__link">
+                <figure class="offer-card__figure"><img src="https://via.placeholder.com/405x244/8e44ad/fff?text=Rep.+Dominicana" alt="Hasta 40% descuento" class="offer-card__img" loading="lazy"></figure>
+                <div class="offer-card__content"><h2 class="offer-card__title">Hasta 40% de descuento en hoteles.</h2></div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Message Banners -->
+    <div class="main-layout mb-40">
+      <div class="d-flex flex-column flex-md-row g-32">
+        <aside class="MessageBanner cursor-pointer" onclick="showModal('modal-rapd')">
+          <span class="flex-shrink-0 icons-point-finger" style="width:48px;height:48px;font-size:48px"></span>
+          <div class="flex-grow-1">
+            <h2 class="mb-12">Reserva ahora y paga después</h2>
+            <p class="mb-1">Te damos más tiempo para pagar tu hospedaje</p>
+            <button type="button" class="btnTertiary">Cómo funciona <i class="icons-angle-right font-20 d-flex"></i></button>
+          </div>
+        </aside>
+        <aside class="MessageBanner cursor-pointer" onclick="showModal('modal-contact')">
+          <span class="flex-shrink-0 icons-support-agent" style="width:48px;height:48px;font-size:48px"></span>
+          <div class="flex-grow-1">
+            <h2 class="mb-12">Nuestros expertos a tu servicio</h2>
+            <p class="mb-1">Atención 24 horas, 365 días del año</p>
+            <button class="btnTertiary" type="button">Contáctanos <i class="icons-angle-right font-20 d-flex"></i></button>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- Hotels -->
+    <div class="main-layout mb-20">
+      <div class="mb-20">
+        <h2 class="font-20 font-md-24 font-600 mb-12">Encuentra tu hotel ideal</h2>
+        <p class="font-16 mb-0" style="color:#666">Las mejores opciones para tu viaje</p>
+      </div>
+      <div class="carousele">
+        <div class="carousele__container">
+          <ul class="carousele__track" style="--gap-base:16px">
+            <li class="rapd-card"><a href="#" class="rapd-card__link"><figure class="rapd-card__figure"><img src="https://via.placeholder.com/280x280/1a3b5d/fff?text=Decameron" class="rapd-card__img" loading="lazy"></figure><div class="rapd-card__content"><h3 class="rapd-card__title">Decameron ¡Cupón de descuento!</h3></div></a></li>
+            <li class="rapd-card"><a href="#" class="rapd-card__link"><figure class="rapd-card__figure"><img src="https://via.placeholder.com/280x280/e85d3a/fff?text=Hoteles+Promo" class="rapd-card__img" loading="lazy"></figure><div class="rapd-card__content"><h3 class="rapd-card__title">Hoteles con promoción</h3></div></a></li>
+            <li class="rapd-card"><a href="#" class="rapd-card__link"><figure class="rapd-card__figure"><img src="https://via.placeholder.com/280x280/27ae60/fff?text=Majestic" class="rapd-card__img" loading="lazy"></figure><div class="rapd-card__content"><h3 class="rapd-card__title">Hasta 30% de descuento + 1 Botella de vino</h3></div></a></li>
+            <li class="rapd-card"><a href="#" class="rapd-card__link"><figure class="rapd-card__figure"><img src="https://via.placeholder.com/280x280/f5a623/fff?text=Royal+Solaris" class="rapd-card__img" loading="lazy"></figure><div class="rapd-card__content"><h3 class="rapd-card__title">Hasta 40% de descuento.</h3></div></a></li>
+            <li class="rapd-card"><a href="#" class="rapd-card__link"><figure class="rapd-card__figure"><img src="https://via.placeholder.com/280x280/2980b9/fff?text=Universal" class="rapd-card__img" loading="lazy"></figure><div class="rapd-card__content"><h3 class="rapd-card__title">2 días gratis* en la compra de un boleto de 3 días</h3></div></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vacation Destinations -->
+    <div class="main-layout mb-40">
+      <div class="mb-20">
+        <h2 class="font-20 font-md-24 font-600 mb-12">Prepara las maletas</h2>
+        <p class="font-16 mb-0" style="color:#666">Increíbles destinos para tus vacaciones</p>
+      </div>
+      <div class="carousele">
+        <div class="carousele__container">
+          <ul class="carousele__track" style="--gap-base:16px">
+            <li><a href="#" class="vacations"><figure class="vacations__figure"><img src="https://via.placeholder.com/289x432/e85d3a/fff?text=Avianca" class="vacations__img" loading="lazy"></figure><div class="vacations__background"><h3 class="vacations__title">Avianca</h3></div></a></li>
+            <li><a href="#" class="vacations"><figure class="vacations__figure"><img src="https://via.placeholder.com/289x432/2980b9/fff?text=San+Andres" class="vacations__img" loading="lazy"></figure><div class="vacations__background"><h3 class="vacations__title">San Andrés</h3></div></a></li>
+            <li><a href="#" class="vacations"><figure class="vacations__figure"><img src="https://via.placeholder.com/289x432/27ae60/fff?text=Santa+Marta" class="vacations__img" loading="lazy"></figure><div class="vacations__background"><h3 class="vacations__title">Santa Marta</h3></div></a></li>
+            <li><a href="#" class="vacations"><figure class="vacations__figure"><img src="https://via.placeholder.com/289x432/f5a623/fff?text=Cartagena" class="vacations__img" loading="lazy"></figure><div class="vacations__background"><h3 class="vacations__title">Cartagena</h3></div></a></li>
+            <li><a href="#" class="vacations"><figure class="vacations__figure"><img src="https://via.placeholder.com/289x432/1a3b5d/fff?text=Aruba" class="vacations__img" loading="lazy"></figure><div class="vacations__background"><h3 class="vacations__title">Aruba</h3></div></a></li>
+            <li><a href="#" class="vacations"><figure class="vacations__figure"><img src="https://via.placeholder.com/289x432/e74c3c/fff?text=Punta+Cana" class="vacations__img" loading="lazy"></figure><div class="vacations__background"><h3 class="vacations__title">Punta Cana</h3></div></a></li>
+            <li><a href="#" class="vacations"><figure class="vacations__figure"><img src="https://via.placeholder.com/289x432/8e44ad/fff?text=Cancun" class="vacations__img" loading="lazy"></figure><div class="vacations__background"><h3 class="vacations__title">Cancún</h3></div></a></li>
+            <li><a href="#" class="vacations"><figure class="vacations__figure"><img src="https://via.placeholder.com/289x432/2ecc71/fff?text=Florida" class="vacations__img" loading="lazy"></figure><div class="vacations__background"><h3 class="vacations__title">Florida</h3></div></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Login Banner -->
+    <div class="main-layout mb-40">
+      <div class="loginBanner">
+        <img class="loginBanner_heroimg" src="https://img.cdnpth.com/assets/img/home-landing/autenticacion-heroimage.jpg" alt="hero image" loading="lazy">
+        <div class="loginBanner_container">
+          <h2>Obtén descuentos al instante</h2>
+          <p><strong>Ahorra hasta 10%</strong> en tu próximo viaje comprando con tu cuenta en Tiquetes Baratos</p>
+          <div class="loginBanner_container_btns">
+            <a href="#" class="btnPrimary">Iniciar sesión</a>
+            <a href="#" class="btnOnBg">Crear cuenta</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTACT MODAL -->
+    <div class="modal" id="modal-contact">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="border-radius:16px;min-height:auto">
+          <div class="modal-header">
+            <h4 class="modal-title">Contáctanos</h4>
+            <button type="button" class="close" onclick="hideModal('modal-contact')"><span class="icons-close"></span></button>
+          </div>
+          <div class="modal-body">
+            <ul style="list-style:none;padding:0">
+              <li style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #eee"><strong>Colombia</strong> <a href="tel:6017436620" class="link">601 743 6620</a></li>
+              <li style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #eee"><strong>México</strong> <a href="tel:+5717442074" class="link">+57 (1) 7442074</a></li>
+              <li style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #eee"><strong>E.U.A / Canadá</strong> <a href="tel:+18552468484" class="link">(855) 246 8484</a></li>
+              <li style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #eee"><strong>Resto del mundo</strong> <a href="tel:+529988812485" class="link">+52 (998) 881 2485</a></li>
+              <li style="display:flex;justify-content:space-between;padding:12px 0"><strong>Correo electrónico</strong> <a href="mailto:contacto@tiquetesbaratos.com" class="link">contacto@tiquetesbaratos.com</a></li>
+            </ul>
+            <p style="font-size:13px;color:#666;padding:12px;background:#f8f9fa;border-radius:8px">Para cambios en tu reserva ten a la mano tu número de reservación.</p>
+          </div>
+          <div class="modal-footer" style="display:flex;gap:8px">
+            <a href="#" class="btnSecondary" style="flex:1"><i class="icons-whatsapp"></i> WhatsApp</a>
+            <a href="#" class="btnSecondary" style="flex:1"><i class="icons-messenger"></i> Messenger</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RAPD MODAL -->
+    <div class="modal" id="modal-rapd">
+      <div class="modal-dialog modal-dialog-centered" style="max-width:500px">
+        <div class="modal-content" style="border-radius:16px;min-height:auto">
+          <div class="modal-header">
+            <h2 class="modal-title">Reserva ahora y paga después</h2>
+            <button type="button" class="close" onclick="hideModal('modal-rapd')"><span class="icons-close"></span></button>
+          </div>
+          <div class="modal-body">
+            <section style="margin-bottom:20px">
+              <h3 style="font-size:16px;display:flex;align-items:center;gap:8px;margin-bottom:12px"><span class="icons-point-finger" style="width:24px;height:24px"></span> ¿Cómo funciona?</h3>
+              <ol style="padding-left:20px">
+                <li style="margin-bottom:8px;font-size:14px">Reserva ahora con <strong>$0 y paga después</strong></li>
+                <li style="margin-bottom:8px;font-size:14px">Recibirás la confirmación de tu reserva con un <strong>número localizador</strong>.</li>
+                <li style="margin-bottom:8px;font-size:14px">Paga en línea o por teléfono antes de la fecha límite.</li>
+              </ol>
+            </section>
+            <section style="margin-bottom:20px">
+              <h3 style="font-size:16px;display:flex;align-items:center;gap:8px;margin-bottom:12px"><span class="icons-secure" style="width:24px;height:24px"></span> ¿Dónde y cómo pagar?</h3>
+              <div style="padding:16px;background:#f8f9fa;border-radius:8px;margin-bottom:12px">
+                <p style="font-weight:600;margin-bottom:8px">Paga en línea</p>
+                <p style="font-size:14px;color:#666;margin-bottom:8px">Te enviaremos un enlace para que puedas realizar tu pago seguro en línea.</p>
+                <p style="font-size:13px;color:#888">Aceptamos: Visa, Mastercard, Amex, Diners</p>
+              </div>
+              <div style="padding:16px;background:#f8f9fa;border-radius:8px;text-align:center">
+                <p style="font-weight:600;margin-bottom:8px">Paga por teléfono</p>
+                <a href="tel:6017436620" style="color:var(--primary);font-size:20px;font-weight:600">601 743 6620</a>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== CONTACT FOOTER BANNER ===== -->
+  <section class="ContactFooterBanner">
+    <div class="container pb-5">
+      <div class="ContactFooterBanner__section">
+        <h2 class="d-none d-xl-block">¿Necesitas ayuda? Comunícate con nosotros</h2>
+        <h2 class="d-xl-none">¡Comunícate con nosotros!</h2>
+        <div class="ContactFooterBanner__options">
+          <a class="ContactFooterBanner__item" href="#"><i class="icons-whatsapp d-flex"></i> <span>Por WhatsApp</span></a>
+          <a class="ContactFooterBanner__item" href="#"><i class="icons-messenger d-flex"></i> <span>Por Messenger</span></a>
+          <a class="ContactFooterBanner__item" href="tel:6017436620"><i class="icons-phone d-flex"></i> <span>Para reservar <strong>601 743 6620</strong></span></a>
+        </div>
+      </div>
+      <div class="ContactFooterBanner__section ContactFooterBanner__section--apps">
+        <h2 class="d-none d-xl-block">Descarga la app de Tiquetes Baratos</h2>
+        <h2 class="d-xl-none">¡Ahorra hasta 10% extra en Hoteles con nuestra app!</h2>
+        <div class="ContactFooterBanner__options">
+          <a href="#"><img src="https://via.placeholder.com/134x44/333/fff?text=App+Store" alt="app store" width="134" height="44"></a>
+          <a href="#"><img src="https://via.placeholder.com/150x44/333/fff?text=Google+Play" alt="google play" width="150" height="44"></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="c-footer">
+    <div class="container">
+      <!-- Newsletter -->
+      <div class="row c-newsletter px-2 py-4 bg-white mx-0 shadow border" style="border-radius:12px">
+        <div class="col-12 col-lg-6">
+          <h3 class="font-22 mb-3">¡No te pierdas ninguna oferta!</h3>
+          <p class="mb-0" style="color:#666">Recibirás información para que vivas la mejor experiencia</p>
+        </div>
+        <div class="col-12 col-lg-6">
+          <div class="content-form-newsletter">
+            <div class="form-email">
+              <input type="email" class="p-3 w-100 border rounded" placeholder="Correo electrónico" style="border:1px solid #ddd;border-radius:8px;padding:12px;width:100%">
+              <small class="text-danger" style="display:none">Ingresa un correo electrónico válido</small>
+            </div>
+            <button class="btnSecondary w-100 p-4" style="padding:12px 24px;white-space:nowrap">Suscribirse ahora</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div class="row pt-md-4 c-footer-links">
+        <div class="col-12 col-lg-3">
+          <div class="row pb-5">
+            <div class="col-12">
+              <a href="#"><svg width="100" height="91" viewBox="0 0 100 91" xmlns="http://www.w3.org/2000/svg">
+                <rect x="10" y="15" width="80" height="60" rx="10" fill="#f5a623"/>
+                <text x="50" y="52" text-anchor="middle" fill="#1a3b5d" font-size="16" font-weight="bold" font-family="Arial">TB</text>
+              </svg></a>
+            </div>
+            <div class="col-12 pt-lg-5 pr-0 social">
+              <span class="text-white font-14" style="opacity:0.7">¡Síguenos en nuestras redes!</span>
+              <div class="c-social mt-3">
+                <a href="#"><span class="icons-facebook"></span></a>
+                <a href="#"><span class="icons-twitter1"></span></a>
+                <a href="#"><span class="icons-youtube"></span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <nav class="col-md-9">
+          <div class="row accordion">
+            <div class="col-12 col-md-4 accordion-item">
+              <p class="h6 footer-group-heading text-white">Aerolíneas Destacadas <i class="icons-chevron-down float-right d-md-none"></i></p>
+              <ul class="list-unstyled">
+                <li><a href="#" class="link--xs text-white f-light">Avianca</a></li>
+                <li><a href="#" class="link--xs text-white f-light">Copa Airlines</a></li>
+                <li><a href="#" class="link--xs text-white f-light">LATAM</a></li>
+                <li><a href="#" class="link--xs text-white f-light">Iberia Airlines</a></li>
+                <li><a href="#" class="link--xs text-white f-light">Airfrance Airlines</a></li>
+                <li><a href="#" class="link--xs text-white f-light">AeroMexico Airlines</a></li>
+                <li><a href="#" class="link--xs text-white f-light">United Airlines</a></li>
+                <li><a href="#" class="link--xs text-white f-light">American Airlines</a></li>
+                <li><a href="#" class="link--xs text-white f-light">JetBlue Airways</a></li>
+                <li><a href="#" class="link--xs text-white f-light">Delta Airlines</a></li>
+              </ul>
+            </div>
+            <div class="col-12 col-md-4 accordion-item">
+              <p class="h6 footer-group-heading text-white">Los más Vistos <i class="icons-chevron-down float-right d-md-none"></i></p>
+              <ul class="list-unstyled">
+                <li><a href="#" class="link--xs text-white f-light">Tiquetes Bogotá</a></li>
+                <li><a href="#" class="link--xs text-white f-light">Boletos Aéreos</a></li>
+                <li><a href="#" class="link--xs text-white f-light">Oferta Vuelos</a></li>
+                <li><a href="#" class="link--xs text-white f-light">Vuelos en Promoción</a></li>
+                <li><a href="#" class="link--xs text-white f-light">Tiquetes Nacionales</a></li>
+                <li><a href="#" class="link--xs text-white f-light">Tiquetes Aéreos</a></li>
+                <li><a href="#" class="link--xs text-white f-light">Destinos</a></li>
+              </ul>
+            </div>
+            <div class="col-12 col-md-4 accordion-item">
+              <p class="h6 footer-group-heading text-white">Sobre tiquetesbaratos.com <i class="icons-chevron-down float-right d-md-none"></i></p>
+              <ul class="list-unstyled">
+                <li><a href="#" class="link--xs text-white f-light">Quiénes Somos</a></li>
+                <li><a href="#" class="link--xs text-white f-light">Términos y Condiciones</a></li>
+                <li><a href="#" class="link--xs text-white f-light">Política de Privacidad</a></li>
+                <li><a href="#" class="link--xs text-white f-light">Compra Segura</a></li>
+                <li><a href="#" class="link--xs text-white f-light">Derechos del pasajero</a></li>
+                <li><a href="#" class="link--xs text-white f-light">Contrato de transporte aéreo</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Brands & Legal -->
+      <div class="row">
+        <div class="col-12 text-center p-0">
+          <section class="py-5">
+            <h3 class="text-white mb-4" style="font-size:16px;font-weight:300;opacity:0.7">Nuestras marcas</h3>
+            <div class="d-flex flex-wrap justify-content-center align-items-center gap-4">
+              <span style="color:#f5a623;font-size:24px;font-weight:bold">TB</span>
+              <span style="color:#fff;font-size:16px;opacity:0.7">PriceTravel</span>
+              <span style="color:#fff;font-size:16px;opacity:0.7">PriceAgencies</span>
+              <span style="color:#fff;font-size:16px;opacity:0.7">Connect</span>
+              <span style="color:#fff;font-size:16px;opacity:0.7">PriceAffiliates</span>
+            </div>
+          </section>
+          <p class="text-white font-14 p-3" style="opacity:0.6;font-size:13px">
+            TiquetesBaratos - PRICE RES S.A.S. NIT. 900.474.794-8, Calle 99 # 10-19 Of 701 Bogotá D.C. Todos los derechos reservados.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
